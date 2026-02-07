@@ -1,34 +1,89 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body{
-  margin:0;
-}
-.bg{
-  height:100vh;
-  background:url("D:/aws-shanmugesh/pandhi.jpg") center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.text{
-  background:rgba(255,255,255,0.6);
-  padding:15px;
-  border-radius:12px;
-  font-size:32px;
-  font-weight:bold;
-  color:black;
-  text-align:center;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday Wish</title>
+
+  <style>
+    /* Reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: #000;
+    }
+
+    /* Full mobile-friendly card */
+    .poster{
+      min-height: 100vh;
+      width: 100%;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+
+      /* ✅ Put your image path here */
+      background-image: url("D:/aws-shanmugesh/pandhi.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* Soft layer to make BLACK text visible on any background */
+    .poster::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.55) 0%,
+        rgba(255,255,255,0.15) 45%,
+        rgba(255,255,255,0.55) 100%
+      );
+      pointer-events:none;
+    }
+
+    .text-wrap{
+      position: relative;
+      text-align: center;
+      padding: 18px 16px;
+      max-width: 92vw;
+      border-radius: 18px;
+
+      /* extra contrast behind text */
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    .title{
+      color: #000; /* ✅ Black text */
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      line-height: 1.1;
+
+      /* Responsive font for mobile */
+      font-size: clamp(28px, 7vw, 56px);
+    }
+
+    .subtitle{
+      margin-top: 10px;
+      color: #000;
+      font-weight: 600;
+      font-size: clamp(14px, 3.8vw, 18px);
+      opacity: 0.9;
+    }
+  </style>
 </head>
 
 <body>
-  <div class="bg">
-    <div class="text">
-      Happy Birthday<br>Shanmugesh 🎉
+  <div class="poster">
+    <div class="text-wrap">
+      <div class="title">Happy Birthday<br/>Shanmugesh</div>
+      <div class="subtitle">Have a great day 🎉</div>
     </div>
   </div>
 </body>
